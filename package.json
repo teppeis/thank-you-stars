@@ -1,0 +1,32 @@
+{
+  "name": "thank-you-stars",
+  "version": "1.0.0",
+  "author": "Teppei Sato <teppeis@gmail.com>",
+  "main": "index.js",
+  "bin": {
+    "thank-you-stars": "bin/thank-you-stars.js"
+  },
+  "scripts": {
+    "test": "npm run test:lint && npm run test:mocha",
+    "test:lint": "eslint .",
+    "test:mocha": "mocha --require intelli-espower-loader test"
+  },
+  "dependencies": {
+    "github": "^9.3.1",
+    "hosted-git-info": "^2.5.0",
+    "normalize-package-data": "^2.4.0",
+    "p-queue": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-teppeis": "^6.2.0",
+    "intelli-espower-loader": "^1.0.1",
+    "mocha": "^3.5.0",
+    "power-assert": "^1.4.4"
+  },
+  "keywords": [
+    "github",
+    "npm"
+  ],
+  "license": "MIT"
+}
