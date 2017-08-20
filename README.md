@@ -30,7 +30,8 @@ Save your GitHub personal access token
 
 ## Usage
 
-After `npm install`, run in your project root directory. And then, it stars your dependencies and devDependencies in your `package.json`.
+After `npm install`, run in your project root directory.
+And then, it stars your dependencies and devDependencies in your `package.json`.
 
 ```console
 $ ls
