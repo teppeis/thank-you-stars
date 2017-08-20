@@ -1,11 +1,17 @@
 {
   "name": "thank-you-stars",
+  "description": "Give your dependencies stars on GitHub!",
   "version": "1.0.0",
   "author": "Teppei Sato <teppeis@gmail.com>",
   "main": "index.js",
   "bin": {
     "thank-you-stars": "bin/thank-you-stars.js"
   },
+  "files": [
+    "index.js",
+    "bin",
+    "lib"
+  ],
   "scripts": {
     "test": "npm run test:lint && npm run test:mocha",
     "test:lint": "eslint .",
@@ -24,6 +30,7 @@
     "mocha": "^3.5.0",
     "power-assert": "^1.4.4"
   },
+  "repository": "teppeis/thank-you-stars",
   "keywords": [
     "github",
     "npm"
