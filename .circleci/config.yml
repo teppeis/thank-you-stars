@@ -12,7 +12,6 @@ jobs:
     docker:
       - image: node
     environment:
-      TEST_REPORTS: /tmp/test-reports
     working_directory: ~/working_directory
     steps:
       - run:
@@ -23,39 +22,42 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-yarn-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "yarn.lock" }}
-            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-yarn-lock-master-{{ .Environment.CIRCLE_JOB }}-{{ checksum "yarn.lock" }}
-            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-yarn-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
-            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-yarn-cache-master-{{ .Environment.CIRCLE_JOB }}
+            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
+            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-npm-lock-master-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
+            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-npm-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+            - v{{ .Environment.CIRCLE_CACHE_VERSION }}-npm-cache-master-{{ .Environment.CIRCLE_JOB }}
       - run:
           name: Install dependencies
-          command: yarn install
+          command: npm install
       - run:
-          name: Test
+          name: Test with TypeScript 2.2
           command: |
-            mkdir -p $TEST_REPORTS
-            yarn test
+            npm install --no-save typescript@2.2
+            npm test
+      - run:
+          name: Test with TypeScript 2.3
+          command: |
+            npm install --no-save typescript@2.3
+            npm test
+      - run:
+          name: Test with TypeScript 2.4
+          command: |
+            npm install --no-save typescript@2.4
+            npm test
+      - run:
+          name: Test with TypeScript 2.5
+          command: |
+            npm install --no-save typescript
+            npm test
       - save_cache:
-          key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-yarn-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "yarn.lock" }}
+          key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-npm-lock-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
       - save_cache:
-          key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-yarn-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "yarn.lock" }}
+          key: v{{ .Environment.CIRCLE_CACHE_VERSION }}-npm-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "package-lock.json" }}
           paths:
             - /usr/local/share/.cache/yarn
-      - run:
-          # Variables are not available in `path` or `paths`
-          # https://discuss.circleci.com/t/can-i-use-variables-in-cache-paths/11393
-          name: Check `yarn cache dir`
-          command: |
-            CACHE_DIR=$(yarn cache dir)
-            echo "yarn cache dir: ${CACHE_DIR}"
-            if [[ "$CACHE_DIR" != /usr/local/share/.cache/yarn* ]]; then
-                exit 1
-            fi
-      - store_test_results:
-          # path: {{ .Environment.TEST_REPORTS }}
-          path: /tmp/test-reports
+            - ~/.npm/_cacache
 
   node-v4:
     <<: *node-base
