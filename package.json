@@ -1,7 +1,7 @@
 {
   "name": "thank-you-stars",
   "description": "Give your dependencies stars on GitHub!",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Teppei Sato <teppeis@gmail.com>",
   "main": "index.js",
   "bin": {
