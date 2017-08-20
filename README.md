@@ -1,6 +1,8 @@
 thank-you-stars
 ====
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/teppeis/thank-you-stars.svg)](https://greenkeeper.io/)
+
 Give your dependencies stars on GitHub!
 
 [![npm version][npm-image]][npm-url]
