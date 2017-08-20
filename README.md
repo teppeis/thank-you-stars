@@ -7,6 +7,7 @@ Give your dependencies stars on GitHub!
 ![Node.js Version Support][node-version]
 [![build status][circleci-image]][circleci-url]
 [![dependency status][deps-image]][deps-url]
+[![Greenkeeper badge](https://badges.greenkeeper.io/teppeis/thank-you-stars.svg)](https://greenkeeper.io/)
 ![License][license]
 
 ## Setup
