@@ -11,12 +11,17 @@ Give your dependencies stars on GitHub!
 
 ## Setup
 
+Install
+
 ```console
 $ npm install -g thank-you-stars
 ```
 
-Save your GitHub token as `~/.thank-you-stars.json`.
+Save your GitHub personal access token
 
+1. Open https://github.com/settings/tokens and click "Generate new token"
+2. Input desc, select only "public_repo" as scope and click "Generate token"
+3. Copy the token and save as `~/.thank-you-stars.json`.
 ```json
 {
     "token": "YOUR_TOKEN"
