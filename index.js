@@ -8,7 +8,9 @@ const loadJson = require('./lib/loadJson');
 
 function thankYou(pkgJson, config) {
   const queue = new PQueue({concurrency: 2});
-  const opts = {};
+  const opts = {
+    timeout: 5000,
+  };
   if (process.env.DEBUG) {
     opts.debug = true;
   }
@@ -21,20 +23,24 @@ function thankYou(pkgJson, config) {
   const deps = Object.assign({}, pkgJson.dependencies, pkgJson.devDependencies);
   for (const pkgName in deps) {
     const pkgJsonPath = path.join(process.cwd(), 'node_modules', pkgName, 'package.json');
-    const pkg = loadJson(pkgJsonPath);
+    let pkg;
+    try {
+      pkg = loadJson(pkgJsonPath);
+    } catch (e) {
+      console.error(`Skipped ${pkgName}: ${e.message}`);
+      continue;
+    }
     const repoInfo = getGitRepoInfoFromPackage(pkg);
     if (repoInfo &&
       repoInfo.type === 'github' &&
       repoInfo.domain === 'github.com') {
-      queue.add(() => star(api, repoInfo.user, repoInfo.project));
+      const user = repoInfo.user;
+      const project = repoInfo.project;
+      queue.add(() => api.activity.starRepo({owner: user, repo: project})
+        .then(() => console.log(`Starred! ${pkgName}: https://github.com/${user}/${project}`))
+        .catch(e => console.error(e)));
     }
   }
-}
-
-function star(api, user, repo) {
-  return api.activity.starRepo({owner: user, repo: repo})
-    .then(() => console.log(`Starred! https://github.com/${user}/${repo}`))
-    .catch(e => console.error(e));
 }
 
 module.exports = thankYou;
