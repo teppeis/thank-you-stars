@@ -8,14 +8,18 @@ const loadJson = require('../lib/loadJson');
 const thankYou = require('../');
 
 const configPath = path.join(getUserHome(), '.thank-you-stars.json');
-if (!fs.existsSync(configPath)) {
-  console.error(`Save your token as ${configPath}`);
-  process.exit(1);
+
+let config = {};
+if (fs.existsSync(configPath)) {
+  config = loadJson(configPath);
 }
-const config = loadJson(configPath);
+
+// check if the token is set, otherwise we try taking it from env var.
+config.token = config.token || process.env.GITHUB_TOKEN;
 
 if (!config.token) {
-  console.error('`token` property is not found in .thank-you-stars.json');
+  console.error(`You need to either store your Github token to ${configPath} `
+     + 'or set your Github Token as a environment variable \'GITHUB_TOKEN\'.');
   process.exit(1);
 }
 
