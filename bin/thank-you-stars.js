@@ -18,8 +18,8 @@ if (fs.existsSync(configPath)) {
 config.token = config.token || process.env.GITHUB_TOKEN;
 
 if (!config.token) {
-  console.error(`You need to either store your Github token to ${configPath} `
-     + 'or set your Github Token as a environment variable \'GITHUB_TOKEN\'.');
+  console.error(`You need to either store your Github token to ${configPath} ` +
+     'or set your Github Token as a environment variable \'GITHUB_TOKEN\'.');
   process.exit(1);
 }
 
