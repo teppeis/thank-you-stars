@@ -22,7 +22,13 @@ Save your GitHub personal access token
 
 1. Open https://github.com/settings/tokens and click "Generate new token"
 2. Input desc, select only "public_repo" as scope and click "Generate token"
-3. Copy the token and save as it as a environment variable `GITHUB_TOKEN`.
+3. Copy the token and save as `~/.thank-you-stars.json`:
+```
+{
+        "token": "YOUR_TOKEN"
+}
+```
+or an environment variable `GITHUB_TOKEN`.
 
 ## Usage
 
