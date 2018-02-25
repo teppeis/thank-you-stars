@@ -7,7 +7,6 @@ Give your dependencies stars on GitHub!
 ![Node.js Version Support][node-version]
 [![build status][circleci-image]][circleci-url]
 [![dependency status][deps-image]][deps-url]
-[![Greenkeeper badge](https://badges.greenkeeper.io/teppeis/thank-you-stars.svg)](https://greenkeeper.io/)
 ![License][license]
 
 ## Setup
@@ -63,5 +62,5 @@ MIT License: Teppei Sato &lt;teppeis@gmail.com&gt;
 [coverage-image]: https://img.shields.io/coveralls/teppeis/thank-you-stars/master.svg
 [coverage-url]: https://coveralls.io/github/teppeis/thank-you-stars?branch=master
 [license]: https://img.shields.io/npm/l/thank-you-stars.svg
-[circleci-image]: https://circleci.com/gh/teppeis/thank-you-stars.svg?style=svg
+[circleci-image]: https://circleci.com/gh/teppeis/thank-you-stars.svg?style=shield
 [circleci-url]: https://circleci.com/gh/teppeis/thank-you-stars
