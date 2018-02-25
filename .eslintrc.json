@@ -1,3 +1,14 @@
 {
-    "extends": "teppeis/node-v4"
+  "extends": ["teppeis/node-v4", "teppeis/prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 100,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "bracketSpacing": false
+      }
+    ]
+  }
 }
