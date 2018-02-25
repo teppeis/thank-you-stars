@@ -31,14 +31,15 @@ function thankYou(pkgJson, config) {
       continue;
     }
     const repoInfo = getGitRepoInfoFromPackage(pkg);
-    if (repoInfo &&
-      repoInfo.type === 'github' &&
-      repoInfo.domain === 'github.com') {
+    if (repoInfo && repoInfo.type === 'github' && repoInfo.domain === 'github.com') {
       const user = repoInfo.user;
       const project = repoInfo.project;
-      queue.add(() => api.activity.starRepo({owner: user, repo: project})
-        .then(() => console.log(`Starred! ${pkgName}: https://github.com/${user}/${project}`))
-        .catch(e => console.error(e)));
+      queue.add(() =>
+        api.activity
+          .starRepo({owner: user, repo: project})
+          .then(() => console.log(`Starred! ${pkgName}: https://github.com/${user}/${project}`))
+          .catch(e => console.error(e))
+      );
     }
   }
 }
