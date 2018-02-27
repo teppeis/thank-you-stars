@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const GitHub = require('github');
+const GitHub = require('@octokit/rest');
 const PQueue = require('p-queue');
 const getGitRepoInfoFromPackage = require('./lib/getGitRepoInfoFromPackage');
 const loadJson = require('./lib/loadJson');
