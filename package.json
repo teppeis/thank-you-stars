@@ -29,7 +29,7 @@
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^4.1.0",
     "power-assert": "^1.4.4",
-    "prettier": "1.10.2"
+    "prettier": "1.11.0"
   },
   "repository": "teppeis/thank-you-stars",
   "keywords": [
