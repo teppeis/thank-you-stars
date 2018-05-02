@@ -21,7 +21,7 @@
     "@octokit/rest": "^15.2.7",
     "hosted-git-info": "^2.6.0",
     "normalize-package-data": "^2.4.0",
-    "p-queue": "^2.4.1"
+    "p-queue": "^2.4.2"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
