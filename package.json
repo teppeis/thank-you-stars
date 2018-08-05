@@ -3,6 +3,9 @@
   "description": "Give your dependencies stars on GitHub!",
   "version": "1.1.2",
   "author": "Teppei Sato <teppeis@gmail.com>",
+  "engines": {
+    "node": ">=6.6"
+  },
   "main": "index.js",
   "bin": {
     "thank-you-stars": "bin/thank-you-stars.js"
