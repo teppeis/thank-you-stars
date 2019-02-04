@@ -27,12 +27,12 @@
     "p-queue": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.11.1",
-    "eslint-config-teppeis": "^9.0.0",
+    "eslint": "^5.13.0",
+    "eslint-config-teppeis": "^9.1.0",
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^5.2.0",
     "power-assert": "^1.6.1",
-    "prettier": "1.15.3"
+    "prettier": "1.16.4"
   },
   "repository": "teppeis/thank-you-stars",
   "keywords": [
