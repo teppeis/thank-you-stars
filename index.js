@@ -32,8 +32,8 @@ function thankYou(pkgJson, config) {
     }
     const repoInfo = getGitRepoInfoFromPackage(pkg);
     if (repoInfo && repoInfo.type === 'github' && repoInfo.domain === 'github.com') {
-      const user = repoInfo.user;
-      const project = repoInfo.project;
+      const {user} = repoInfo;
+      const {project} = repoInfo;
       queue.add(() =>
         api.activity
           .starRepo({owner: user, repo: project})
