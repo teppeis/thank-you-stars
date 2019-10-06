@@ -44,7 +44,7 @@ describe("getGitRepoInfoFromPackage", () => {
     const info = getGitRepoInfo({
       repository: {
         type: "git",
-        url: "gist:11081aaa281",
+        url: "gist:4c815a58358aed6a9fc4fa856fc4c57f",
       },
     });
     assert.equal(info.type, "gist");
