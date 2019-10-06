@@ -1,62 +1,62 @@
-'use strict';
+"use strict";
 
-const assert = require('assert');
-const getGitRepoInfo = require('../lib/getGitRepoInfoFromPackage');
+const assert = require("assert");
+const getGitRepoInfo = require("../lib/getGitRepoInfoFromPackage");
 
-describe('getGitRepoInfoFromPackage', () => {
-  it('string: npm/ini', () => {
-    const info = getGitRepoInfo({repository: 'npm/ini'});
-    assert.equal(info.type, 'github');
-    assert.equal(info.domain, 'github.com');
-    assert.equal(info.user, 'npm');
-    assert.equal(info.project, 'ini');
+describe("getGitRepoInfoFromPackage", () => {
+  it("string: npm/ini", () => {
+    const info = getGitRepoInfo({ repository: "npm/ini" });
+    assert.equal(info.type, "github");
+    assert.equal(info.domain, "github.com");
+    assert.equal(info.user, "npm");
+    assert.equal(info.project, "ini");
   });
 
-  it('object: https://github.com/npm/ini.git', () => {
+  it("object: https://github.com/npm/ini.git", () => {
     const info = getGitRepoInfo({
       repository: {
-        type: 'git',
-        url: 'https://github.com/npm/ini.git',
+        type: "git",
+        url: "https://github.com/npm/ini.git",
       },
     });
-    assert.equal(info.type, 'github');
-    assert.equal(info.domain, 'github.com');
-    assert.equal(info.user, 'npm');
-    assert.equal(info.project, 'ini');
+    assert.equal(info.type, "github");
+    assert.equal(info.domain, "github.com");
+    assert.equal(info.user, "npm");
+    assert.equal(info.project, "ini");
   });
 
-  it('no repository property', () => {
+  it("no repository property", () => {
     const info = getGitRepoInfo({});
     assert.equal(info, null);
   });
 
-  it('no git repo', () => {
+  it("no git repo", () => {
     const info = getGitRepoInfo({
       repository: {
-        type: 'svn',
-        url: 'https://v8.googlecode.com/svn/trunk/',
+        type: "svn",
+        url: "https://v8.googlecode.com/svn/trunk/",
       },
     });
     assert.equal(info, null);
   });
 
-  it('gist', () => {
+  it("gist", () => {
     const info = getGitRepoInfo({
       repository: {
-        type: 'git',
-        url: 'gist:11081aaa281',
+        type: "git",
+        url: "gist:11081aaa281",
       },
     });
-    assert.equal(info.type, 'gist');
+    assert.equal(info.type, "gist");
   });
 
-  it('bitbucket', () => {
+  it("bitbucket", () => {
     const info = getGitRepoInfo({
       repository: {
-        type: 'git',
-        url: 'bitbucket:example/repo',
+        type: "git",
+        url: "bitbucket:example/repo",
       },
     });
-    assert.equal(info.type, 'bitbucket');
+    assert.equal(info.type, "bitbucket");
   });
 });

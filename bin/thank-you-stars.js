@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-'use strict';
+"use strict";
 
-const path = require('path');
-const fs = require('fs');
-const loadJson = require('../lib/loadJson');
-const thankYou = require('../');
+const path = require("path");
+const fs = require("fs");
+const loadJson = require("../lib/loadJson");
+const thankYou = require("../");
 
-const configPath = path.join(getUserHome(), '.thank-you-stars.json');
+const configPath = path.join(getUserHome(), ".thank-you-stars.json");
 
 let config = {};
 if (fs.existsSync(configPath)) {
@@ -25,15 +25,15 @@ if (!config.token) {
   process.exit(1);
 }
 
-if (!fs.existsSync(path.join(process.cwd(), 'node_modules'))) {
-  console.error('Run `npm install` before');
+if (!fs.existsSync(path.join(process.cwd(), "node_modules"))) {
+  console.error("Run `npm install` before");
   process.exit(1);
 }
-const pkgPath = path.join(process.cwd(), 'package.json');
+const pkgPath = path.join(process.cwd(), "package.json");
 const pkgJson = loadJson(pkgPath);
 
 thankYou(pkgJson, config);
 
 function getUserHome() {
-  return process.env[process.platform === 'win32' ? 'USERPROFILE' : 'HOME'];
+  return process.env[process.platform === "win32" ? "USERPROFILE" : "HOME"];
 }
