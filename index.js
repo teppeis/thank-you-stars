@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-const path = require('path');
-const GitHub = require('@octokit/rest');
-const PQueue = require('p-queue');
-const getGitRepoInfoFromPackage = require('./lib/getGitRepoInfoFromPackage');
-const loadJson = require('./lib/loadJson');
+const path = require("path");
+const GitHub = require("@octokit/rest");
+const PQueue = require("p-queue");
+const getGitRepoInfoFromPackage = require("./lib/getGitRepoInfoFromPackage");
+const loadJson = require("./lib/loadJson");
 
 function thankYou(pkgJson, config) {
-  const queue = new PQueue({concurrency: 2});
+  const queue = new PQueue({ concurrency: 2 });
   const opts = {
     timeout: 5000,
   };
@@ -16,13 +16,13 @@ function thankYou(pkgJson, config) {
   }
   const api = new GitHub(opts);
   api.authenticate({
-    type: 'token',
+    type: "token",
     token: config.token,
   });
 
-  const deps = Object.assign({}, pkgJson.dependencies, pkgJson.devDependencies);
+  const deps = { ...pkgJson.dependencies, ...pkgJson.devDependencies };
   for (const pkgName in deps) {
-    const pkgJsonPath = path.join(process.cwd(), 'node_modules', pkgName, 'package.json');
+    const pkgJsonPath = path.join(process.cwd(), "node_modules", pkgName, "package.json");
     let pkg;
     try {
       pkg = loadJson(pkgJsonPath);
@@ -31,12 +31,12 @@ function thankYou(pkgJson, config) {
       continue;
     }
     const repoInfo = getGitRepoInfoFromPackage(pkg);
-    if (repoInfo && repoInfo.type === 'github' && repoInfo.domain === 'github.com') {
-      const {user} = repoInfo;
-      const {project} = repoInfo;
+    if (repoInfo && repoInfo.type === "github" && repoInfo.domain === "github.com") {
+      const { user } = repoInfo;
+      const { project } = repoInfo;
       queue.add(() =>
         api.activity
-          .starRepo({owner: user, repo: project})
+          .starRepo({ owner: user, repo: project })
           .then(() => console.log(`Starred! ${pkgName}: https://github.com/${user}/${project}`))
           .catch(e => console.error(e))
       );
