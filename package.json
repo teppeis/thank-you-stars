@@ -21,7 +21,7 @@
     "test:mocha": "mocha --require intelli-espower-loader test"
   },
   "dependencies": {
-    "@octokit/rest": "^16.28.7",
+    "@octokit/rest": "^16.31.0",
     "hosted-git-info": "^2.7.1",
     "normalize-package-data": "^2.5.0",
     "p-queue": "^3.2.0"
