@@ -58,7 +58,7 @@ MIT License: Teppei Sato &lt;teppeis@gmail.com&gt;
 [npm-downloads-image]: https://img.shields.io/npm/dm/thank-you-stars.svg
 [deps-image]: https://img.shields.io/david/teppeis/thank-you-stars.svg
 [deps-url]: https://david-dm.org/teppeis/thank-you-stars
-[node-version]: https://img.shields.io/badge/Node.js%20support-v6,v8,v10-brightgreen.svg
+[node-version]: https://img.shields.io/badge/Node.js%20support-v8,v10,v12-brightgreen.svg
 [coverage-image]: https://img.shields.io/coveralls/teppeis/thank-you-stars/master.svg
 [coverage-url]: https://coveralls.io/github/teppeis/thank-you-stars?branch=master
 [license]: https://img.shields.io/npm/l/thank-you-stars.svg
