@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "eslint": "^6.5.1",
-    "eslint-config-teppeis": "^10.2.1",
+    "eslint-config-teppeis": "^10.2.2",
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^6.2.2",
     "power-assert": "^1.6.1",
