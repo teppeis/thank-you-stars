@@ -10,7 +10,7 @@ version: 2
 jobs:
   node-base: &node-base
     docker:
-      - image: node:latest@sha256:43478852038accc605831f4e1e2954ec1b48297d9eee0771e76fb861edef1ced
+      - image: node:latest@sha256:bf240f199c51f512240769f48c053f6586e6467002169240f8303fa268389109
     environment:
     steps:
       - run:
