@@ -45,7 +45,7 @@ jobs:
   node-v10:
     <<: *node-base
     docker:
-      - image: node:10@sha256:005a6876db18f172d301ceee7d72895c11f9bfe72300f017d8637ca2121d9468
+      - image: node:10@sha256:4fafd9b63fdfb15112775847a10b2917760c720c8c28cef5167ff40f36b3cd93
   node-v12:
     <<: *node-base
     docker:
