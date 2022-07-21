@@ -10,7 +10,7 @@ version: 2
 jobs:
   node-base: &node-base
     docker:
-      - image: node:latest@sha256:5244663c5cc6392808aa1c4a78f90369e75c3d9e9a27589cffed0ae73d1f0815
+      - image: node:latest@sha256:c9504e6bdd0498b99acbf392b94e4d0d56b2c6a37e52b5766cfb909894d9f389
     environment:
     steps:
       - run:
@@ -41,11 +41,11 @@ jobs:
   node-v8:
     <<: *node-base
     docker:
-      - image: node:18@sha256:5244663c5cc6392808aa1c4a78f90369e75c3d9e9a27589cffed0ae73d1f0815
+      - image: node:18@sha256:c9504e6bdd0498b99acbf392b94e4d0d56b2c6a37e52b5766cfb909894d9f389
   node-v10:
     <<: *node-base
     docker:
-      - image: node:18@sha256:5244663c5cc6392808aa1c4a78f90369e75c3d9e9a27589cffed0ae73d1f0815
+      - image: node:18@sha256:c9504e6bdd0498b99acbf392b94e4d0d56b2c6a37e52b5766cfb909894d9f389
   node-v12:
     <<: *node-base
     docker:
