@@ -41,12 +41,12 @@ jobs:
   node-v8:
     <<: *node-base
     docker:
-      - image: node:19@sha256:92f06fc13bcc09f1ddc51f6ebf1aa3d21a6532b74f076f224f188bc6b9317570
+      - image: node:20@sha256:14f0471d0478fbb9177d0f9e8c146dc872273dcdcfc7fea93a27ed81fc6b0e96
   node-v10:
     <<: *node-base
     docker:
-      - image: node:19@sha256:92f06fc13bcc09f1ddc51f6ebf1aa3d21a6532b74f076f224f188bc6b9317570
+      - image: node:20@sha256:14f0471d0478fbb9177d0f9e8c146dc872273dcdcfc7fea93a27ed81fc6b0e96
   node-v12:
     <<: *node-base
     docker:
-      - image: node:19
+      - image: node:20
